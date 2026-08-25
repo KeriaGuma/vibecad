@@ -1,0 +1,7 @@
+# Optional: Chinese/English OCR for scanned mechanical drawings.
+# This is intentionally separate from requirements.txt because Paddle's runtime
+# and first-run model downloads are large. The application falls back cleanly
+# when it is not installed.
+-r requirements.txt
+paddleocr==3.7.0
+paddlepaddle==3.3.1

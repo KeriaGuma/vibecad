@@ -1,0 +1,13 @@
+[run]
+source = app
+omit =
+    app/__init__.py
+
+[report]
+# Fail the coverage gate below this percentage.
+fail_under = 95
+show_missing = true
+exclude_lines =
+    pragma: no cover
+    raise NotImplementedError
+    if __name__ == .__main__.:

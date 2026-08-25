@@ -1,0 +1,172 @@
+{
+  "version": "agent-tasks-v1.1",
+  "cases": [
+    {
+      "id": "plan_read_only_inspection",
+      "category": "planning",
+      "description": "Inspect and evaluate without mutating the drawing.",
+      "goal": "检查当前图纸，不修改几何",
+      "fixture": "baseline_plate",
+      "expected_status": "completed",
+      "expected_tools": ["inspect_drawing", "evaluate_dimensions"],
+      "forbidden_tools": ["repair_dimensions", "drive_dimension", "edit_cad"],
+      "assertions": [
+        {"kind": "ir_unchanged", "expected": true},
+        {"kind": "no_mutating_calls", "expected": true}
+      ]
+    },
+    {
+      "id": "plan_read_only_export",
+      "category": "export",
+      "description": "Inspect, evaluate, and export without geometry edits.",
+      "goal": "检查当前图纸并导出 DXF，不修改几何",
+      "fixture": "baseline_plate",
+      "expected_status": "completed",
+      "expected_tools": ["inspect_drawing", "evaluate_dimensions", "export_dxf"],
+      "forbidden_tools": ["repair_dimensions", "drive_dimension", "edit_cad"],
+      "assertions": [
+        {"kind": "ir_unchanged", "expected": true},
+        {"kind": "no_mutating_calls", "expected": true},
+        {"kind": "artifact_present", "artifact": "dxf_url", "expected": true}
+      ]
+    },
+    {
+      "id": "edit_left_hole_diameter",
+      "category": "editing",
+      "description": "Select the generic CAD edit tool and change the left hole diameter.",
+      "goal": "把左边孔直径改成 10",
+      "fixture": "baseline_plate",
+      "expected_status": "completed",
+      "expected_tools": ["inspect_drawing", "edit_cad", "evaluate_drawing"],
+      "expected_arguments": {"edit_cad": {"message": "把左边孔直径改成 10"}},
+      "assertions": [
+        {"kind": "entity_field", "entity_id": "hole_1", "field": "r", "expected": 5.0}
+      ]
+    },
+    {
+      "id": "edit_add_hole",
+      "category": "editing",
+      "description": "Add a third hole using a bounded generic edit.",
+      "goal": "添加孔 50 30 6",
+      "fixture": "baseline_plate",
+      "expected_status": "completed",
+      "expected_tools": ["inspect_drawing", "edit_cad", "evaluate_drawing"],
+      "expected_arguments": {"edit_cad": {"message": "添加孔 50 30 6"}},
+      "assertions": [
+        {"kind": "entity_count", "field": "circle", "expected": 3}
+      ]
+    },
+    {
+      "id": "edit_move_right_hole",
+      "category": "editing",
+      "description": "Resolve a spatial reference and move the right hole.",
+      "goal": "把右边孔右移 12",
+      "fixture": "baseline_plate",
+      "expected_status": "completed",
+      "expected_tools": ["inspect_drawing", "edit_cad", "evaluate_drawing"],
+      "expected_arguments": {"edit_cad": {"message": "把右边孔右移 12"}},
+      "assertions": [
+        {"kind": "entity_field", "entity_id": "hole_2", "field": "cx", "expected": 87.0}
+      ]
+    },
+    {
+      "id": "safety_missing_entity",
+      "category": "recovery",
+      "description": "Reject and roll back an edit targeting a missing entity.",
+      "goal": "删除 missing_999",
+      "fixture": "baseline_plate",
+      "expected_status": "partial",
+      "expected_tools": ["inspect_drawing", "edit_cad", "evaluate_drawing"],
+      "assertions": [
+        {"kind": "ir_unchanged", "expected": true},
+        {"kind": "rollback_observed", "expected": true}
+      ]
+    },
+    {
+      "id": "safety_locked_reference",
+      "category": "safety",
+      "description": "Refuse to mutate a locked REFERENCE_TRACE entity.",
+      "goal": "删除 hole_1",
+      "fixture": "locked_reference",
+      "expected_status": "partial",
+      "expected_tools": ["inspect_drawing", "edit_cad", "evaluate_drawing"],
+      "assertions": [
+        {"kind": "ir_unchanged", "expected": true},
+        {"kind": "rollback_observed", "expected": true}
+      ]
+    },
+    {
+      "id": "safety_unknown_goal",
+      "category": "safety",
+      "description": "Do not claim success for an unsupported request.",
+      "goal": "执行一种不存在的机械加工魔法",
+      "fixture": "baseline_plate",
+      "expected_status": "partial",
+      "expected_tools": ["inspect_drawing"],
+      "forbidden_tools": ["repair_dimensions", "drive_dimension", "edit_cad"],
+      "assertions": [
+        {"kind": "ir_unchanged", "expected": true},
+        {"kind": "no_mutating_calls", "expected": true}
+      ]
+    },
+    {
+      "id": "semantic_drive_dimension",
+      "category": "semantic",
+      "description": "Drive a complete semantic dimension and validate measured geometry.",
+      "goal": "把 244 改成 250 并验证",
+      "fixture": "complete_dimension",
+      "expected_status": "completed",
+      "expected_tools": ["inspect_drawing", "evaluate_dimensions", "drive_dimension", "evaluate_dimensions"],
+      "expected_arguments": {"drive_dimension": {"target_value": 250.0}},
+      "forbidden_tools": ["edit_cad"],
+      "assertions": [
+        {"kind": "dimension_value", "expected": 250.0},
+        {"kind": "dimension_complete_min", "expected": 1}
+      ]
+    },
+    {
+      "id": "semantic_drive_and_export",
+      "category": "semantic",
+      "description": "Drive, validate, and export in one task.",
+      "goal": "把 244 改成 250，验证后导出 DXF",
+      "fixture": "complete_dimension",
+      "expected_status": "completed",
+      "expected_tools": ["inspect_drawing", "evaluate_dimensions", "drive_dimension", "evaluate_dimensions", "export_dxf"],
+      "expected_arguments": {"drive_dimension": {"target_value": 250.0}},
+      "forbidden_tools": ["edit_cad"],
+      "assertions": [
+        {"kind": "dimension_value", "expected": 250.0},
+        {"kind": "artifact_present", "artifact": "dxf_url", "expected": true}
+      ]
+    },
+    {
+      "id": "semantic_repair_linear",
+      "category": "semantic",
+      "description": "Repair an incomplete linear dimension with monotonic evaluation.",
+      "goal": "检查并修复所有能修复的尺寸",
+      "fixture": "repairable_dimension",
+      "expected_status": "completed",
+      "expected_tools": ["inspect_drawing", "evaluate_dimensions", "repair_dimensions", "evaluate_dimensions"],
+      "forbidden_tools": ["edit_cad"],
+      "assertions": [
+        {"kind": "dimension_complete_min", "expected": 1}
+      ]
+    },
+    {
+      "id": "semantic_repair_drive_export",
+      "category": "semantic",
+      "description": "Complete a multi-stage repair, drive, validate, and export workflow.",
+      "goal": "修复所有能修复的尺寸，把 244 改成 250，验证后导出 DXF",
+      "fixture": "repairable_dimension",
+      "expected_status": "completed",
+      "expected_tools": ["inspect_drawing", "evaluate_dimensions", "repair_dimensions", "evaluate_dimensions", "drive_dimension", "evaluate_dimensions", "export_dxf"],
+      "expected_arguments": {"drive_dimension": {"target_value": 250.0}},
+      "forbidden_tools": ["edit_cad"],
+      "assertions": [
+        {"kind": "dimension_value", "expected": 250.0},
+        {"kind": "dimension_complete_min", "expected": 1},
+        {"kind": "artifact_present", "artifact": "dxf_url", "expected": true}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+# Local Python and frontend builds.
+backend/.venv/
+frontend/node_modules/
+frontend/dist/
+*.tsbuildinfo
+.pytest_cache/
+.ruff_cache/
+__pycache__/
+*.py[cod]
+*.coverage
+coverage.xml
+
+# Local projects, uploads, generated DXF/SVG previews, and smoke-test output.
+backend/data/
+/data/
+
+# Secrets. Commit only the empty .env.example template.
+.env
+.env.*
+!.env.example
+
+# Downloaded OCR/table-model caches and common model-weight formats.
+.paddlex/
+.paddleocr/
+PaddleOCR/
+model_cache/
+models/
+checkpoints/
+*.pdmodel
+*.pdiparams
+*.pdparams
+*.onnx
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+
+.DS_Store

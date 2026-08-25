@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">VibeCAD public-safe agent evaluation demo</title>
+  <desc id="desc">A schematic mechanical drawing beside a validated CAD agent task timeline and evaluation metrics.</desc>
+  <rect width="1200" height="720" fill="#0b1220"/>
+  <rect x="28" y="28" width="1144" height="664" rx="10" fill="#111c31" stroke="#31425e" stroke-width="2"/>
+  <text x="60" y="78" fill="#f8fafc" font-family="Arial, sans-serif" font-size="26" font-weight="700">VibeCAD public-safe demo</text>
+  <text x="60" y="108" fill="#9fb3cc" font-family="Arial, sans-serif" font-size="16">2D mechanical drawing agent · bounded tools · validation · rollback</text>
+  <rect x="60" y="142" width="620" height="490" rx="6" fill="#f7f8fb" stroke="#c3cfdf" stroke-width="2"/>
+  <rect x="82" y="164" width="576" height="446" fill="none" stroke="#354155" stroke-width="2"/>
+  <path d="M150 452 L150 300 L205 300 L205 250 L270 250 L270 300 L335 300 L335 452 L300 452 L300 494 L185 494 L185 452 Z" fill="none" stroke="#111827" stroke-width="4"/>
+  <path d="M205 300 L270 365 M185 345 L270 430 M185 390 L240 452" stroke="#475569" stroke-width="2"/>
+  <circle cx="445" cy="374" r="88" fill="none" stroke="#111827" stroke-width="4"/>
+  <circle cx="445" cy="374" r="56" fill="none" stroke="#111827" stroke-width="3"/>
+  <path d="M330 532 H545 M330 517 V548 M545 517 V548" stroke="#334155" stroke-width="2"/>
+  <path d="M330 532 l14 -7 v14 Z M545 532 l-14 -7 v14 Z" fill="#111827"/>
+  <text x="414" y="524" fill="#111827" font-family="Arial, sans-serif" font-size="17">244</text>
+  <rect x="505" y="200" width="125" height="130" fill="none" stroke="#334155" stroke-width="2"/>
+  <path d="M505 226 H630 M505 252 H630 M505 278 H630 M535 200 V330 M580 200 V330" stroke="#64748b" stroke-width="1.5"/>
+  <text x="520" y="219" fill="#334155" font-family="Arial, sans-serif" font-size="12">z 29</text>
+  <text x="552" y="245" fill="#334155" font-family="Arial, sans-serif" font-size="12">m 2</text>
+  <text x="596" y="271" fill="#334155" font-family="Arial, sans-serif" font-size="12">20°</text>
+  <rect x="436" y="540" width="194" height="55" fill="none" stroke="#334155" stroke-width="2"/>
+  <path d="M436 558 H630 M485 540 V595 M540 540 V595" stroke="#64748b" stroke-width="1.5"/>
+  <text x="448" y="554" fill="#334155" font-family="Arial, sans-serif" font-size="10">TITLE BLOCK</text>
+  <text x="494" y="580" fill="#334155" font-family="Arial, sans-serif" font-size="10">VibeCAD sample</text>
+  <rect x="708" y="142" width="434" height="490" rx="6" fill="#0f172a" stroke="#31425e" stroke-width="2"/>
+  <text x="738" y="184" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="19" font-weight="700">Task Agent</text>
+  <rect x="738" y="205" width="374" height="57" rx="5" fill="#172a46" stroke="#245b9e"/>
+  <text x="757" y="230" fill="#dbeafe" font-family="Arial, sans-serif" font-size="14">Goal: change linear dimension 244 → 250</text>
+  <text x="757" y="250" fill="#93c5fd" font-family="Arial, sans-serif" font-size="12">DeepSeek plans; local runtime enforces contracts</text>
+  <line x1="758" y1="299" x2="758" y2="442" stroke="#3b82f6" stroke-width="2"/>
+  <g font-family="Arial, sans-serif">
+    <circle cx="758" cy="302" r="8" fill="#34d399"/><text x="780" y="307" fill="#e2e8f0" font-size="15">inspect_drawing</text>
+    <circle cx="758" cy="348" r="8" fill="#34d399"/><text x="780" y="353" fill="#e2e8f0" font-size="15">evaluate_dimensions</text>
+    <circle cx="758" cy="394" r="8" fill="#34d399"/><text x="780" y="399" fill="#e2e8f0" font-size="15">drive_dimension</text>
+    <circle cx="758" cy="440" r="8" fill="#fbbf24"/><text x="780" y="445" fill="#fde68a" font-size="15">policy: post-mutation validation</text>
+  </g>
+  <rect x="738" y="478" width="374" height="118" rx="5" fill="#111c31" stroke="#31425e"/>
+  <text x="758" y="508" fill="#f8fafc" font-family="Arial, sans-serif" font-size="16" font-weight="700">Agent Eval v1.1</text>
+  <text x="758" y="537" fill="#6ee7b7" font-family="Arial, sans-serif" font-size="25" font-weight="700">12 / 12 strict pass</text>
+  <text x="758" y="563" fill="#bfdbfe" font-family="Arial, sans-serif" font-size="13">Tool precision / recall / order / safety: 100%</text>
+  <text x="758" y="584" fill="#93a4bd" font-family="Arial, sans-serif" font-size="12">Public-safe synthetic example; no customer drawings included.</text>
+  <text x="60" y="668" fill="#93a4bd" font-family="Arial, sans-serif" font-size="13">Source: built-in baseline fixture, not a claim of reconstruction accuracy for arbitrary scanned drawings.</text>
+</svg>

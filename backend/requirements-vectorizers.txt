@@ -1,0 +1,2 @@
+# Optional dependencies for external raster/vector benchmark tools.
+vtracer==0.6.15

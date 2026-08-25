@@ -1,0 +1,13 @@
+fastapi==0.124.4
+uvicorn[standard]==0.38.0
+pydantic==2.12.5
+ezdxf==1.4.3
+Pillow==12.2.0
+python-multipart==0.0.20
+opencv-python-headless==4.13.0.92
+pymupdf==1.27.2.3
+svgelements==1.9.6
+vtracer==0.6.15
+networkx==3.6.1
+openai==2.44.0
+python-dotenv==1.2.2

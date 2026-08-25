@@ -1,0 +1,2007 @@
+[
+  {
+    "closed": false,
+    "geo": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        420.0,
+        0.0
+      ],
+      [
+        420.0,
+        297.0
+      ],
+      [
+        0.0,
+        297.0
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LWPOLYLINE"
+  },
+  {
+    "closed": false,
+    "geo": [
+      [
+        32.0,
+        25.0
+      ],
+      [
+        387.0,
+        25.0
+      ],
+      [
+        387.0,
+        263.0
+      ],
+      [
+        32.0,
+        263.0
+      ],
+      [
+        32.0,
+        25.0
+      ]
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LWPOLYLINE"
+  },
+  {
+    "geo": [
+      168.0,
+      283.0
+    ],
+    "layer": "TEXT",
+    "text": "第 1 章   机械零件图",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      4.0,
+      267.0
+    ],
+    "layer": "TEXT",
+    "text": "1.1  齿轮类零件图",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      18.0,
+      256.0
+    ],
+    "layer": "TEXT",
+    "text": "1. 圆柱直齿轮（LJT01.01）",
+    "type": "TEXT"
+  },
+  {
+    "closed": true,
+    "geo": [
+      [
+        98.0,
+        76.0
+      ],
+      [
+        98.0,
+        88.0
+      ],
+      [
+        101.0,
+        92.0
+      ],
+      [
+        125.0,
+        92.0
+      ],
+      [
+        129.0,
+        96.0
+      ],
+      [
+        129.0,
+        110.0
+      ],
+      [
+        134.0,
+        116.0
+      ],
+      [
+        154.0,
+        116.0
+      ],
+      [
+        160.0,
+        122.0
+      ],
+      [
+        160.0,
+        130.0
+      ],
+      [
+        154.0,
+        130.0
+      ],
+      [
+        154.0,
+        170.0
+      ],
+      [
+        160.0,
+        170.0
+      ],
+      [
+        160.0,
+        178.0
+      ],
+      [
+        154.0,
+        184.0
+      ],
+      [
+        134.0,
+        184.0
+      ],
+      [
+        129.0,
+        190.0
+      ],
+      [
+        129.0,
+        204.0
+      ],
+      [
+        125.0,
+        208.0
+      ],
+      [
+        101.0,
+        208.0
+      ],
+      [
+        98.0,
+        212.0
+      ],
+      [
+        98.0,
+        224.0
+      ],
+      [
+        124.0,
+        224.0
+      ],
+      [
+        129.0,
+        219.0
+      ],
+      [
+        129.0,
+        205.0
+      ],
+      [
+        133.0,
+        194.0
+      ],
+      [
+        140.0,
+        187.0
+      ],
+      [
+        158.0,
+        187.0
+      ],
+      [
+        164.0,
+        181.0
+      ],
+      [
+        164.0,
+        170.0
+      ],
+      [
+        154.0,
+        170.0
+      ],
+      [
+        154.0,
+        130.0
+      ],
+      [
+        164.0,
+        130.0
+      ],
+      [
+        164.0,
+        119.0
+      ],
+      [
+        158.0,
+        113.0
+      ],
+      [
+        140.0,
+        113.0
+      ],
+      [
+        133.0,
+        106.0
+      ],
+      [
+        129.0,
+        95.0
+      ],
+      [
+        129.0,
+        88.0
+      ],
+      [
+        124.0,
+        76.0
+      ]
+    ],
+    "layer": "OUTLINE",
+    "type": "LWPOLYLINE"
+  },
+  {
+    "closed": false,
+    "geo": [
+      [
+        98.0,
+        116.0
+      ],
+      [
+        154.0,
+        116.0
+      ],
+      [
+        154.0,
+        184.0
+      ],
+      [
+        98.0,
+        184.0
+      ],
+      [
+        98.0,
+        116.0
+      ]
+    ],
+    "layer": "OUTLINE",
+    "type": "LWPOLYLINE"
+  },
+  {
+    "geo": [
+      101.0,
+      184.0,
+      154.0,
+      184.0
+    ],
+    "layer": "OUTLINE",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      101.0,
+      116.0,
+      154.0,
+      116.0
+    ],
+    "layer": "OUTLINE",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      98.0,
+      208.0,
+      125.0,
+      208.0
+    ],
+    "layer": "OUTLINE",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      98.0,
+      199.0,
+      129.0,
+      199.0
+    ],
+    "layer": "OUTLINE",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      98.0,
+      92.0,
+      125.0,
+      92.0
+    ],
+    "layer": "OUTLINE",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      98.0,
+      101.0,
+      129.0,
+      101.0
+    ],
+    "layer": "OUTLINE",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      134.0,
+      184.0,
+      154.0,
+      184.0
+    ],
+    "layer": "OUTLINE",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      134.0,
+      116.0,
+      154.0,
+      116.0
+    ],
+    "layer": "OUTLINE",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      92.0,
+      178.0,
+      98.0,
+      184.0
+    ],
+    "layer": "OUTLINE",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      92.0,
+      122.0,
+      98.0,
+      116.0
+    ],
+    "layer": "OUTLINE",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      92.0,
+      122.0,
+      92.0,
+      178.0
+    ],
+    "layer": "OUTLINE",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      142.0,
+      205.0,
+      18.0,
+      180.0,
+      250.0
+    ],
+    "layer": "OUTLINE",
+    "type": "ARC"
+  },
+  {
+    "geo": [
+      142.0,
+      95.0,
+      18.0,
+      110.0,
+      180.0
+    ],
+    "layer": "OUTLINE",
+    "type": "ARC"
+  },
+  {
+    "geo": [
+      72.0,
+      150.0,
+      170.0,
+      150.0
+    ],
+    "layer": "CENTER",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      108.0,
+      64.0,
+      108.0,
+      235.0
+    ],
+    "layer": "CENTER",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      157.3889,
+      170.3889,
+      163.6111,
+      176.6111
+    ],
+    "layer": "HATCH",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      154.3889,
+      174.3889,
+      162.1111,
+      182.1111
+    ],
+    "layer": "HATCH",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      154.3889,
+      181.3889,
+      158.6111,
+      185.6111
+    ],
+    "layer": "HATCH",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      150.3889,
+      184.3889,
+      152.6111,
+      186.6111
+    ],
+    "layer": "HATCH",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      143.3889,
+      184.3889,
+      145.6111,
+      186.6111
+    ],
+    "layer": "HATCH",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      136.3889,
+      184.3889,
+      139.1111,
+      187.1111
+    ],
+    "layer": "HATCH",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      129.3889,
+      184.3889,
+      135.6111,
+      190.6111
+    ],
+    "layer": "HATCH",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      122.3889,
+      184.3889,
+      132.3444,
+      194.3444
+    ],
+    "layer": "HATCH",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      115.3889,
+      184.3889,
+      130.4778,
+      199.4778
+    ],
+    "layer": "HATCH",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      108.3889,
+      184.3889,
+      128.6111,
+      204.6111
+    ],
+    "layer": "HATCH",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      101.3889,
+      184.3889,
+      124.6111,
+      207.6111
+    ],
+    "layer": "HATCH",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      99.3889,
+      189.3889,
+      117.6111,
+      207.6111
+    ],
+    "layer": "HATCH",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      99.3889,
+      196.3889,
+      110.6111,
+      207.6111
+    ],
+    "layer": "HATCH",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      99.3889,
+      203.3889,
+      103.6111,
+      207.6111
+    ],
+    "layer": "HATCH",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      158.3889,
+      113.3889,
+      163.6111,
+      118.6111
+    ],
+    "layer": "HATCH",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      151.3889,
+      113.3889,
+      153.6111,
+      115.6111
+    ],
+    "layer": "HATCH",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      125.3889,
+      94.3889,
+      128.6111,
+      97.6111
+    ],
+    "layer": "HATCH",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      144.3889,
+      113.3889,
+      146.6111,
+      115.6111
+    ],
+    "layer": "HATCH",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      154.3889,
+      123.3889,
+      160.6111,
+      129.6111
+    ],
+    "layer": "HATCH",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      118.3889,
+      94.3889,
+      139.6111,
+      115.6111
+    ],
+    "layer": "HATCH",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      111.3889,
+      94.3889,
+      132.6111,
+      115.6111
+    ],
+    "layer": "HATCH",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      104.3889,
+      94.3889,
+      125.6111,
+      115.6111
+    ],
+    "layer": "HATCH",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      99.3889,
+      96.3889,
+      118.6111,
+      115.6111
+    ],
+    "layer": "HATCH",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      99.3889,
+      103.3889,
+      111.6111,
+      115.6111
+    ],
+    "layer": "HATCH",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      99.3889,
+      110.3889,
+      104.6111,
+      115.6111
+    ],
+    "layer": "HATCH",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      54.0,
+      78.0,
+      54.0,
+      222.0
+    ],
+    "layer": "DIMENSION",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      64.0,
+      93.0,
+      64.0,
+      207.0
+    ],
+    "layer": "DIMENSION",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      190.0,
+      115.0,
+      190.0,
+      185.0
+    ],
+    "layer": "DIMENSION",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      174.0,
+      124.0,
+      174.0,
+      176.0
+    ],
+    "layer": "DIMENSION",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      86.0,
+      68.0,
+      126.0,
+      68.0
+    ],
+    "layer": "DIMENSION",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      92.0,
+      238.0,
+      126.0,
+      238.0
+    ],
+    "layer": "DIMENSION",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      47.0,
+      145.0
+    ],
+    "layer": "DIMENSION",
+    "text": "φ62  -0.2",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      60.0,
+      146.0
+    ],
+    "layer": "DIMENSION",
+    "text": "φ58",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      194.0,
+      146.0
+    ],
+    "layer": "DIMENSION",
+    "text": "φ42",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      176.0,
+      146.0
+    ],
+    "layer": "DIMENSION",
+    "text": "φ25 +0.021",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      101.0,
+      63.0
+    ],
+    "layer": "DIMENSION",
+    "text": "25",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      104.0,
+      241.0
+    ],
+    "layer": "DIMENSION",
+    "text": "15",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      54.0,
+      216.0
+    ],
+    "layer": "DIMENSION",
+    "text": "Ra3.2",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      132.0,
+      216.0
+    ],
+    "layer": "DIMENSION",
+    "text": "Ra1.6",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      112.0,
+      137.0
+    ],
+    "layer": "DIMENSION",
+    "text": "Ra1.6",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      139.0,
+      92.0
+    ],
+    "layer": "DIMENSION",
+    "text": "R3",
+    "type": "TEXT"
+  },
+  {
+    "closed": false,
+    "geo": [
+      [
+        171.0,
+        101.0
+      ],
+      [
+        181.0,
+        101.0
+      ],
+      [
+        181.0,
+        110.0
+      ],
+      [
+        171.0,
+        110.0
+      ],
+      [
+        171.0,
+        101.0
+      ]
+    ],
+    "layer": "DIMENSION",
+    "type": "LWPOLYLINE"
+  },
+  {
+    "geo": [
+      173.0,
+      103.0
+    ],
+    "layer": "DIMENSION",
+    "text": "A",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      230.0,
+      150.0,
+      33.0
+    ],
+    "layer": "OUTLINE",
+    "type": "CIRCLE"
+  },
+  {
+    "geo": [
+      230.0,
+      150.0,
+      29.0
+    ],
+    "layer": "OUTLINE",
+    "type": "CIRCLE"
+  },
+  {
+    "closed": false,
+    "geo": [
+      [
+        223.0,
+        181.0
+      ],
+      [
+        223.0,
+        203.0
+      ],
+      [
+        237.0,
+        203.0
+      ],
+      [
+        237.0,
+        181.0
+      ]
+    ],
+    "layer": "OUTLINE",
+    "type": "LWPOLYLINE"
+  },
+  {
+    "geo": [
+      196.0,
+      150.0,
+      266.0,
+      150.0
+    ],
+    "layer": "CENTER",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      230.0,
+      117.0,
+      230.0,
+      207.0
+    ],
+    "layer": "CENTER",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      223.0,
+      214.0,
+      237.0,
+      214.0
+    ],
+    "layer": "DIMENSION",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      268.0,
+      118.0,
+      268.0,
+      203.0
+    ],
+    "layer": "DIMENSION",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      221.0,
+      219.0
+    ],
+    "layer": "DIMENSION",
+    "text": "8±0.018",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      271.0,
+      145.0
+    ],
+    "layer": "DIMENSION",
+    "text": "28.3 +0.02",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      255.0,
+      174.0
+    ],
+    "layer": "DIMENSION",
+    "text": "Ra3.2",
+    "type": "TEXT"
+  },
+  {
+    "closed": false,
+    "geo": [
+      [
+        254.0,
+        198.0
+      ],
+      [
+        280.0,
+        198.0
+      ],
+      [
+        280.0,
+        208.0
+      ],
+      [
+        254.0,
+        208.0
+      ],
+      [
+        254.0,
+        198.0
+      ]
+    ],
+    "layer": "DIMENSION",
+    "type": "LWPOLYLINE"
+  },
+  {
+    "geo": [
+      257.0,
+      201.0
+    ],
+    "layer": "DIMENSION",
+    "text": "0.01  A",
+    "type": "TEXT"
+  },
+  {
+    "closed": false,
+    "geo": [
+      [
+        282.0,
+        166.0
+      ],
+      [
+        377.0,
+        166.0
+      ],
+      [
+        377.0,
+        246.0
+      ],
+      [
+        282.0,
+        246.0
+      ],
+      [
+        282.0,
+        166.0
+      ]
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LWPOLYLINE"
+  },
+  {
+    "geo": [
+      304.8,
+      166.0,
+      304.8,
+      246.0
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      318.1,
+      166.0,
+      318.1,
+      246.0
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      334.25,
+      166.0,
+      334.25,
+      246.0
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      348.5,
+      166.0,
+      348.5,
+      246.0
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      361.8,
+      166.0,
+      361.8,
+      246.0
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      282.0,
+      174.0,
+      377.0,
+      174.0
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      282.0,
+      182.0,
+      377.0,
+      182.0
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      282.0,
+      190.0,
+      377.0,
+      190.0
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      282.0,
+      198.0,
+      377.0,
+      198.0
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      282.0,
+      206.0,
+      377.0,
+      206.0
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      282.0,
+      214.0,
+      377.0,
+      214.0
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      282.0,
+      222.0,
+      377.0,
+      222.0
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      282.0,
+      230.0,
+      377.0,
+      230.0
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      282.0,
+      238.0,
+      377.0,
+      238.0
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      283.0,
+      240.45
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "齿廓",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      319.1,
+      240.45
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "渐开线",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      283.0,
+      232.45
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "齿数 z",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      319.1,
+      232.45
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "29",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      283.0,
+      224.45
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "模数 m",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      319.1,
+      224.45
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "2",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      283.0,
+      216.45
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "螺旋角 β",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      319.1,
+      216.45
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "0°",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      283.0,
+      208.45
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "压力角 α",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      319.1,
+      208.45
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "20°",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      283.0,
+      200.45
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "配对齿轮",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      319.1,
+      200.45
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "齿数 z",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      362.8,
+      200.45
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "58",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      283.0,
+      192.45
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "公法线长度",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      319.1,
+      192.45
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "21.48",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      362.8,
+      192.45
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "k 3",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      283.0,
+      184.45
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "跨球尺寸",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      319.1,
+      184.45
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "M",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      362.8,
+      184.45
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "DM",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      283.0,
+      176.45
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "精度等级",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      319.1,
+      176.45
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "7",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      335.25,
+      176.45
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "GB/T 10095",
+    "type": "TEXT"
+  },
+  {
+    "closed": false,
+    "geo": [
+      [
+        282.0,
+        124.0
+      ],
+      [
+        377.0,
+        124.0
+      ],
+      [
+        377.0,
+        166.0
+      ],
+      [
+        282.0,
+        166.0
+      ],
+      [
+        282.0,
+        124.0
+      ]
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LWPOLYLINE"
+  },
+  {
+    "geo": [
+      327.6,
+      124.0,
+      327.6,
+      166.0
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      340.9,
+      124.0,
+      340.9,
+      166.0
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      356.1,
+      124.0,
+      356.1,
+      166.0
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      282.0,
+      130.0,
+      377.0,
+      130.0
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      282.0,
+      136.0,
+      377.0,
+      136.0
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      282.0,
+      142.0,
+      377.0,
+      142.0
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      282.0,
+      148.0,
+      377.0,
+      148.0
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      282.0,
+      154.0,
+      377.0,
+      154.0
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      282.0,
+      160.0,
+      377.0,
+      160.0
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      283.0,
+      161.725
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "检测项目",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      328.6,
+      161.725
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "代号",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      357.1,
+      161.725
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "允许值",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      283.0,
+      155.725
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "单个齿距偏差",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      328.6,
+      155.725
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "Fpt",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      357.1,
+      155.725
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "0.011",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      283.0,
+      149.725
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "齿距累积偏差",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      328.6,
+      149.725
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "Fp",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      357.1,
+      149.725
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "0.037",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      283.0,
+      143.725
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "齿廓总偏差",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      328.6,
+      143.725
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "Fa",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      357.1,
+      143.725
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "0.012",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      283.0,
+      137.725
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "齿廓形状偏差",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      328.6,
+      137.725
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "Ffa",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      357.1,
+      137.725
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "0.009",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      283.0,
+      131.725
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "轮廓倾斜偏差",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      328.6,
+      131.725
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "FHa",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      357.1,
+      131.725
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "0.0075",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      283.0,
+      125.725
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "径向跳动公差",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      328.6,
+      125.725
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "Fr",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      357.1,
+      125.725
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "0.029",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      304.0,
+      116.0
+    ],
+    "layer": "TEXT",
+    "text": "技术要求",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      286.0,
+      105.0
+    ],
+    "layer": "TEXT",
+    "text": "1. 热处理后齿面硬度为241~286HBW。",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      286.0,
+      100.5
+    ],
+    "layer": "TEXT",
+    "text": "2. 未注倒角为C2。",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      286.0,
+      96.0
+    ],
+    "layer": "TEXT",
+    "text": "3. 齿轮内在质量按MQ级执行。",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      286.0,
+      91.5
+    ],
+    "layer": "TEXT",
+    "text": "4. 齿根圆滑过渡，棱角倒钝。",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      286.0,
+      87.0
+    ],
+    "layer": "TEXT",
+    "text": "5. 未注尺寸公差按GB/T 1804-m。",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      286.0,
+      82.5
+    ],
+    "layer": "TEXT",
+    "text": "6. 未注几何公差按GB/T 1184-K。",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      340.0,
+      90.0
+    ],
+    "layer": "DIMENSION",
+    "text": "Ra12.5",
+    "type": "TEXT"
+  },
+  {
+    "closed": false,
+    "geo": [
+      [
+        331.0,
+        86.0
+      ],
+      [
+        336.0,
+        79.0
+      ],
+      [
+        341.0,
+        96.0
+      ]
+    ],
+    "layer": "DIMENSION",
+    "type": "LWPOLYLINE"
+  },
+  {
+    "closed": false,
+    "geo": [
+      [
+        230.0,
+        25.0
+      ],
+      [
+        377.0,
+        25.0
+      ],
+      [
+        377.0,
+        77.0
+      ],
+      [
+        230.0,
+        77.0
+      ],
+      [
+        230.0,
+        25.0
+      ]
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LWPOLYLINE"
+  },
+  {
+    "geo": [
+      241.76,
+      25.0,
+      241.76,
+      77.0
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      259.4,
+      25.0,
+      259.4,
+      77.0
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      285.86,
+      25.0,
+      285.86,
+      77.0
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      315.26,
+      25.0,
+      315.26,
+      77.0
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      337.31,
+      25.0,
+      337.31,
+      77.0
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      356.42,
+      25.0,
+      356.42,
+      77.0
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      230.0,
+      34.36,
+      377.0,
+      34.36
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      230.0,
+      42.68,
+      377.0,
+      42.68
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      230.0,
+      52.04,
+      377.0,
+      52.04
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      230.0,
+      62.44,
+      377.0,
+      62.44
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      300.0,
+      25.0,
+      300.0,
+      77.0
+    ],
+    "layer": "TITLE_BLOCK",
+    "type": "LINE"
+  },
+  {
+    "geo": [
+      338.31,
+      67.87
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "合肥工业大学",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      338.31,
+      50.81
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "圆柱直齿轮",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      338.31,
+      37.02
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "LJT01.01",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      316.26,
+      62.22
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "4:5",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      231.0,
+      28.33
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "工艺",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      231.0,
+      37.17
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "审核",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      231.0,
+      46.01
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "制图",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      231.0,
+      55.89
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "设计",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      260.4,
+      28.33
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "批准",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      286.86,
+      37.32
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "阶段标记",
+    "type": "TEXT"
+  },
+  {
+    "geo": [
+      316.26,
+      37.32
+    ],
+    "layer": "TITLE_BLOCK",
+    "text": "量",
+    "type": "TEXT"
+  }
+]

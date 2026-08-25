@@ -1,0 +1,8 @@
+# Ruff config for the Vibe CAD backend.
+# Docs: https://docs.astral.sh/ruff/
+target-version = "py311"
+line-length = 120
+
+[lint]
+# Default rules (pyflakes F + a subset of pycodestyle E) plus import sorting (I).
+extend-select = ["I"]

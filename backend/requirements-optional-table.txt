@@ -1,0 +1,4 @@
+# Optional: title-block/table reconstruction providers for scanned drawings.
+# Install this after requirements-optional-ocr.txt when you need them.
+-r requirements-optional-ocr.txt
+img2table>=1.4,<2
