@@ -191,18 +191,6 @@ provide a DeepSeek key and explicitly disables Paddle model downloading.
   entities. Matching the reference visually is not the same as reconstructing
   fully editable CAD semantics.
 
-## Repository hygiene
-
-The public repository intentionally excludes:
-
-- API keys and local `.env` files.
-- User uploads, generated project data, DXF/SVG previews, and smoke output.
-- Paddle/model caches and common model-weight formats.
-- Third-party source drawings unless their redistribution rights are clear.
-
-Before adding a new example drawing, verify that it is your own work, public
-domain, or explicitly licensed for redistribution.
-
 ## License
 
 This project is released under the [MIT License](LICENSE).
