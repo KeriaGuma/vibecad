@@ -846,11 +846,33 @@ input {
   color: #fca5a5;
 }
 
+.agent-task-run-header b.needs_clarification {
+  border-color: #d97706;
+  color: #fcd34d;
+}
+
 .agent-task-goal {
   margin: 0;
   color: #dbeafe;
   font-size: 11px;
   line-height: 1.45;
+}
+
+.agent-task-clarification {
+  display: grid;
+  gap: 4px;
+  padding: 8px;
+  border: 1px solid #a16207;
+  border-radius: 6px;
+  background: #422006;
+  color: #fef3c7;
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+.agent-task-clarification small {
+  color: #fcd34d;
+  font-size: 9px;
 }
 
 .agent-task-steps {

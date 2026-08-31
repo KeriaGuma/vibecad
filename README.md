@@ -58,6 +58,8 @@ enforces the following contracts:
 | `edit_cad` | `evaluate_drawing` checks entity-ID and numeric-geometry integrity |
 | `repair_dimensions` | `evaluate_dimensions` before and after repair |
 | `drive_dimension` | `evaluate_dimensions` before and after the geometry transaction |
+| ambiguous generic edit | read-only inspection plus one focused candidate-selection question |
+| `export_dxf` | isolated DXF/SVG generation, DXF re-read, and SVG-root verification |
 
 If a post-mutation validation fails, the project snapshot is restored before
 the Agent can replan. The trace records runtime-injected policy checks so an
@@ -74,22 +76,23 @@ LLM omission remains inspectable instead of silently becoming product behavior.
   measured geometry, `MechanicalDimensionObject`, and native DXF dimension
   export where the semantic object is complete.
 - Agent runtime: typed tools, task timeline, automatic validation injection,
-  snapshot rollback, bounded replan, and deterministic offline fallback.
-- Evaluation: a versioned 12-case Agent Eval set covering planning, editing,
+  snapshot rollback, bounded replan, ambiguity-safe target selection, and
+  deterministic offline fallback.
+- Evaluation: a versioned 13-case Agent Eval set covering planning, editing,
   semantic drive/repair, safety, recovery, and export.
 
 ## Evaluation snapshot
 
-`agent-tasks-v1.1` was run locally after the runtime contract layer was added:
+`agent-tasks-v1.2` was run locally after the ambiguity and export-evidence
+gates were added:
 
 | Mode | Strict pass | Tool precision / recall / order | Arguments | Safety |
 | --- | ---: | ---: | ---: | ---: |
-| Deterministic | 12 / 12 | 100% / 100% / 100% | 100% | 100% |
-| DeepSeek V4 Flash | 12 / 12 | 100% / 100% / 100% | 100% | 100% |
+| Deterministic | 13 / 13 | 100% / 100% / 100% | 100% | 100% |
 
-The DeepSeek run averaged `1.17` LLM calls and `0.58` runtime-injected policy
-checks per task. These are local MVP results on the included synthetic
-fixtures, not a benchmark for arbitrary external drawings.
+These are local MVP results on the included synthetic fixtures, not a benchmark
+for arbitrary external drawings. Run the same versioned suite with a configured
+LLM provider before treating model-specific results as comparable.
 
 ## Quick start
 

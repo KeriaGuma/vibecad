@@ -3,12 +3,17 @@ from __future__ import annotations
 import math
 from collections import Counter
 from dataclasses import dataclass
+from pathlib import Path
+from tempfile import TemporaryDirectory
 from typing import Callable, Literal
+
+import ezdxf
 
 from .agent import plan_operations
 from .cad_layers import REFERENCE_TRACE, canonical_layer_name
 from .cad_ops import apply_operations
 from .dimension_benchmark import evaluate_dimension_benchmark
+from .exporter import export_dxf, export_svg
 from .mechanical_drive import (
     MechanicalDriveError,
     execute_mechanical_operation,
@@ -167,9 +172,9 @@ def build_default_tool_registry() -> AgentToolRegistry:
     registry.register(
         _definition(
             "export_dxf",
-            "Request regeneration of the project DXF and SVG artifacts after accepted edits.",
+            "Generate and round-trip validate DXF and SVG artifacts after accepted edits.",
             {},
-            validator="export_on_project_commit",
+            validator="export_artifacts_round_trip",
         ),
         _export_dxf,
     )
@@ -445,16 +450,49 @@ def _export_dxf(
     context: AgentToolContext,
 ) -> AgentToolOutcome:
     del arguments, context
+    try:
+        evidence = _validate_export_artifacts(project)
+    except Exception as exc:  # noqa: BLE001 - exporter failures must fail the task
+        raise AgentToolError(f"Export artifact validation failed: {exc}") from exc
     return AgentToolOutcome(
         project=project,
         status="accepted",
-        observation="DXF 和 SVG 将在任务提交时从当前 MechanicalDrawingIR 重新生成。",
+        observation=(
+            "DXF 和 SVG 已在隔离目录生成并通过重新读取校验；"
+            f"DXF 包含 {evidence['dxf_entity_count']} 个图元。"
+        ),
         output={
             "dxf_url": f"/api/projects/{project.project_id}/files/output.dxf",
             "svg_url": f"/api/projects/{project.project_id}/files/preview.svg",
+            **evidence,
         },
-        validation={"passed": True, "validator": "export_on_project_commit"},
+        validation={"passed": True, "validator": "export_artifacts_round_trip", **evidence},
     )
+
+
+def _validate_export_artifacts(project: ProjectState) -> dict[str, int | bool]:
+    """Exercise the actual exporters before claiming that an artifact is ready."""
+
+    with TemporaryDirectory(prefix="vibecad_export_check_") as directory:
+        root = Path(directory)
+        dxf_path = root / "output.dxf"
+        svg_path = root / "preview.svg"
+        export_dxf(project.ir, dxf_path, project.mechanical_ir)
+        export_svg(project.ir, svg_path)
+
+        document = ezdxf.readfile(dxf_path)
+        dxf_entity_count = len(document.modelspace())
+        if project.ir.entities and dxf_entity_count == 0:
+            raise ValueError("DXF round-trip lost every drawing entity")
+        svg = svg_path.read_text(encoding="utf-8")
+        if not svg.lstrip().startswith("<svg"):
+            raise ValueError("SVG export does not contain an SVG root element")
+        return {
+            "dxf_entity_count": dxf_entity_count,
+            "dxf_bytes": dxf_path.stat().st_size,
+            "svg_bytes": svg_path.stat().st_size,
+            "svg_root_verified": True,
+        }
 
 
 def _ensure_no_locked_reference_mutation(project: ProjectState, operations) -> None:

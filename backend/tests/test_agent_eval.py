@@ -9,8 +9,8 @@ from app.models import AgentEvalRequest
 def test_agent_eval_dataset_is_versioned_and_covers_core_categories():
     version, cases = load_agent_eval_dataset()
 
-    assert version == "agent-tasks-v1.1"
-    assert len(cases) == 12
+    assert version == "agent-tasks-v1.2"
+    assert len(cases) == 13
     assert {case.category for case in cases} == {
         "planning",
         "editing",
@@ -25,8 +25,8 @@ def test_agent_eval_dataset_is_versioned_and_covers_core_categories():
 def test_deterministic_agent_eval_baseline_passes_all_cases():
     report = run_agent_eval(AgentEvalRequest(mode="deterministic"))
 
-    assert report.case_count == 12
-    assert report.passed_count == 12
+    assert report.case_count == 13
+    assert report.passed_count == 13
     assert report.metrics.task_success_rate == 1
     assert report.metrics.tool_selection_precision == 1
     assert report.metrics.tool_selection_recall == 1
@@ -66,7 +66,7 @@ def test_agent_eval_api_persists_report_without_mutating_project_ir(client):
 
     dataset = client.get("/api/agent/evals/dataset")
     assert dataset.status_code == 200
-    assert dataset.json()["version"] == "agent-tasks-v1.1"
+    assert dataset.json()["version"] == "agent-tasks-v1.2"
 
     response = client.post(
         f"/api/projects/{project_id}/agent/evals",

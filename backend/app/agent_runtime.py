@@ -22,6 +22,7 @@ from .mechanical_edit import (
 )
 from .models import (
     AgentPlannedStep,
+    AgentTaskClarification,
     AgentTaskRequest,
     AgentTaskRun,
     AgentTaskStepTrace,
@@ -47,6 +48,9 @@ def run_agent_task(
     registry = registry or build_default_tool_registry()
     working = project.model_copy(deep=True)
     before_score = _dimension_score(working)
+    clarification = _focused_clarification(request.goal, working)
+    if clarification is not None:
+        return _clarification_run(working, request, registry, before_score, clarification)
     planner_source = "deterministic"
     planner_model = None
     planner_reason = "Local intent planner selected registered CAD tools."
@@ -290,6 +294,64 @@ def run_agent_task(
     return working, run
 
 
+def _clarification_run(
+    project: ProjectState,
+    request: AgentTaskRequest,
+    registry: AgentToolRegistry,
+    before_score: float | None,
+    clarification: AgentTaskClarification,
+) -> tuple[ProjectState, AgentTaskRun]:
+    """Return a read-only inspection run instead of guessing an edit target."""
+
+    now = datetime.now(timezone.utc)
+    inspect = registry.execute(
+        "inspect_drawing",
+        project,
+        AgentToolArguments(),
+        AgentToolContext(goal=request.goal, planner_source="deterministic"),
+    )
+    step = AgentTaskStepTrace(
+        index=0,
+        attempt=1,
+        call_id="policy_inspect_for_clarification",
+        tool="inspect_drawing",
+        status=inspect.status,
+        arguments=AgentToolArguments(),
+        reason="Runtime policy: inspect candidates before an ambiguous mutation.",
+        observation=inspect.observation,
+        output=inspect.output,
+        validation=inspect.validation,
+        mutating=False,
+        reversible=False,
+        started_at=now,
+        completed_at=now,
+    )
+    run = AgentTaskRun(
+        id=new_id("agent_task"),
+        goal=request.goal.strip(),
+        status="needs_clarification",
+        planner_source="deterministic",
+        planner_reason="Runtime blocked an ambiguous mutation before planning.",
+        initial_plan=[
+            AgentPlannedStep(
+                call_id=step.call_id,
+                tool=step.tool,
+                arguments=step.arguments,
+                reason=step.reason,
+            )
+        ],
+        steps=[step],
+        max_tool_calls=request.max_tool_calls,
+        before_dimension_score=before_score,
+        after_dimension_score=before_score,
+        summary=clarification.question,
+        clarification=clarification,
+        created_at=now,
+        completed_at=now,
+    )
+    return project, run
+
+
 def append_agent_task_run(project: ProjectState, run: AgentTaskRun) -> None:
     project.agent_task_runs = [*project.agent_task_runs, run][-MAX_TASK_RUNS:]
 
@@ -337,6 +399,93 @@ def _deterministic_plan(goal: str, project: ProjectState, max_tool_calls: int) -
     if wants_export:
         add("export_dxf", reason="Generate final CAD artifacts after validated edits.")
     return steps[:max_tool_calls]
+
+
+def _focused_clarification(goal: str, project: ProjectState) -> AgentTaskClarification | None:
+    """Detect generic edits whose selected entity would otherwise be a parser guess.
+
+    The deterministic parser intentionally offers ergonomic defaults for demos.
+    The task runtime is stricter: once a drawing has several editable objects,
+    an edit must name an id, a uniquely resolvable semantic label, or a spatial
+    selector such as "left hole". This keeps the Agent from silently mutating
+    whichever entity happens to be first in the IR.
+    """
+
+    if _explicit_no_edit(goal):
+        return None
+    operations, _ = plan_operations(goal, project.ir)
+    target_ids = {
+        operation.entity_id
+        for operation in operations
+        if operation.operation in {"modify_entity", "delete_entity", "move_entity", "set_layer"}
+        and operation.entity_id
+    }
+    if not target_ids:
+        return None
+
+    entities = {entity.id: entity for entity in project.ir.entities}
+    target = next((entities[entity_id] for entity_id in target_ids if entity_id in entities), None)
+    editable = [entity for entity in project.ir.entities if _is_editable_entity(entity.id, project)]
+    if target is None or len(editable) <= 1 or _has_explicit_target_reference(goal, target, editable):
+        return None
+
+    candidates = _candidate_entities(goal, target.type, editable)
+    if not candidates:
+        candidates = editable
+    candidate_labels = [_entity_candidate_label(entity) for entity in candidates[:6]]
+    candidate_hint = "、".join(candidate_labels)
+    return AgentTaskClarification(
+        reason="The requested mutation does not identify one editable entity unambiguously.",
+        candidates=candidate_labels,
+        question=(
+            f"需要先确认要编辑的对象：{candidate_hint}。"
+            "请使用对象 ID，或使用明确描述（例如“左边孔”“右边孔”）后再执行。"
+        ),
+    )
+
+
+def _is_editable_entity(entity_id: str, project: ProjectState) -> bool:
+    entity = next((item for item in project.ir.entities if item.id == entity_id), None)
+    if entity is None:
+        return False
+    layers = {layer.name: layer for layer in project.ir.layers}
+    layer = layers.get(entity.layer)
+    return layer is None or (layer.editable and not layer.locked)
+
+
+def _has_explicit_target_reference(goal: str, target, editable) -> bool:
+    lower = goal.lower()
+    if target.id.lower() in lower:
+        return True
+    if target.label and target.label.lower() in lower:
+        return True
+    if target.type == "circle":
+        mentions_circle = any(token in lower for token in ("孔", "圆", "hole", "circle"))
+        if mentions_circle and any(token in lower for token in ("左", "右", "left", "right")):
+            return True
+        return mentions_circle and len([item for item in editable if item.type == "circle"]) == 1
+    if target.type == "rectangle":
+        mentions_plate = any(token in lower for token in ("板", "矩形", "plate", "rectangle"))
+        return mentions_plate and len([item for item in editable if item.type == "rectangle"]) == 1
+    return False
+
+
+def _candidate_entities(goal: str, target_type: str, editable):
+    lower = goal.lower()
+    if any(token in lower for token in ("孔", "圆", "hole", "circle")):
+        return [entity for entity in editable if entity.type == "circle"]
+    if any(token in lower for token in ("板", "矩形", "plate", "rectangle")):
+        return [entity for entity in editable if entity.type == "rectangle"]
+    same_type = [entity for entity in editable if entity.type == target_type]
+    return same_type if len(same_type) > 1 else editable
+
+
+def _entity_candidate_label(entity) -> str:
+    if entity.type == "circle":
+        return f"{entity.id}（圆孔，中心 {entity.cx:g}, {entity.cy:g}）"
+    if entity.type == "rectangle":
+        return f"{entity.id}（矩形板件）"
+    return f"{entity.id}（{entity.type}）"
 
 
 def _enforce_post_mutation_evaluators(

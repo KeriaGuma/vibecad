@@ -68,6 +68,37 @@ def test_deterministic_task_executes_edit_and_export():
     assert run.policy_injected_steps == 1
 
 
+def test_ambiguous_generic_edit_requests_one_focused_clarification():
+    initial = _project()
+    project, run = run_agent_task(
+        initial,
+        AgentTaskRequest(goal="把孔直径改成 10", use_llm=True),
+    )
+
+    assert run.status == "needs_clarification"
+    assert run.llm_calls == 0
+    assert [step.tool for step in run.steps] == ["inspect_drawing"]
+    assert project.ir == initial.ir
+    assert run.clarification is not None
+    assert any(label.startswith("hole_1") for label in run.clarification.candidates)
+    assert any(label.startswith("hole_2") for label in run.clarification.candidates)
+    assert "确认" in run.summary
+
+
+def test_export_task_round_trips_real_artifacts_before_reporting_success():
+    _, run = run_agent_task(
+        _project(),
+        AgentTaskRequest(goal="检查当前图纸并导出 DXF，不修改几何", use_llm=False),
+    )
+
+    export_step = next(step for step in run.steps if step.tool == "export_dxf")
+    assert export_step.validation["validator"] == "export_artifacts_round_trip"
+    assert export_step.output["dxf_entity_count"] > 0
+    assert export_step.output["dxf_bytes"] > 0
+    assert export_step.output["svg_bytes"] > 0
+    assert export_step.output["svg_root_verified"] is True
+
+
 def test_failed_mutation_is_rolled_back_and_deepseek_replans(monkeypatch):
     from app import agent_runtime
 

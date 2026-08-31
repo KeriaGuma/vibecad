@@ -388,7 +388,7 @@ type AgentTaskStepTrace = {
 type AgentTaskRun = {
   id: string;
   goal: string;
-  status: "completed" | "partial" | "failed" | "rolled_back";
+  status: "completed" | "partial" | "failed" | "needs_clarification" | "rolled_back";
   planner_source: "deepseek" | "deterministic" | "deterministic_fallback";
   planner_model?: string | null;
   planner_reason: string;
@@ -402,6 +402,11 @@ type AgentTaskRun = {
   after_dimension_score?: number | null;
   summary: string;
   artifacts: Record<string, string>;
+  clarification?: {
+    question: string;
+    reason: string;
+    candidates: string[];
+  } | null;
   snapshot_file?: string | null;
   created_at: string;
   completed_at: string;
@@ -1516,7 +1521,7 @@ function App() {
         `/api/projects/${project.project_id}/agent/evals`,
         {
           method: "POST",
-          body: JSON.stringify({ mode: agentEvalMode, max_cases: 12 }),
+          body: JSON.stringify({ mode: agentEvalMode, max_cases: 13 }),
         },
       );
       loadProject(response.project);
@@ -2667,7 +2672,7 @@ function App() {
                   <div className="agent-eval-header">
                     <span>
                       <strong>Agent Eval</strong>
-                      <small>{latestAgentEvalReport?.dataset_version ?? "agent-tasks-v1.1 · 12 cases"}</small>
+                      <small>{latestAgentEvalReport?.dataset_version ?? "agent-tasks-v1.2 · 13 cases"}</small>
                     </span>
                     {latestAgentEvalReport ? (
                       <b className={latestAgentEvalReport.passed_count === latestAgentEvalReport.case_count ? "pass" : "fail"}>
@@ -2737,6 +2742,14 @@ function App() {
                       <b className={latestAgentTaskRun.status}>{latestAgentTaskRun.status}</b>
                     </div>
                     <p className="agent-task-goal">{latestAgentTaskRun.goal}</p>
+                    {latestAgentTaskRun.clarification ? (
+                      <div className="agent-task-clarification">
+                        <strong>{latestAgentTaskRun.clarification.question}</strong>
+                        {latestAgentTaskRun.clarification.candidates.length ? (
+                          <small>{latestAgentTaskRun.clarification.candidates.join(" · ")}</small>
+                        ) : null}
+                      </div>
+                    ) : null}
                     <div className="agent-task-steps">
                       {latestAgentTaskRun.steps.map((step) => (
                         <div className={`agent-task-step ${step.status}`} key={`${latestAgentTaskRun.id}-${step.index}`}>

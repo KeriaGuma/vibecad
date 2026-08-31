@@ -323,10 +323,18 @@ class AgentTaskStepTrace(BaseModel):
     completed_at: datetime
 
 
+class AgentTaskClarification(BaseModel):
+    """One focused question emitted when an edit target is not safely resolvable."""
+
+    question: str
+    reason: str
+    candidates: list[str] = Field(default_factory=list)
+
+
 class AgentTaskRun(BaseModel):
     id: str
     goal: str
-    status: Literal["completed", "partial", "failed", "rolled_back"]
+    status: Literal["completed", "partial", "failed", "needs_clarification", "rolled_back"]
     planner_source: Literal["deepseek", "deterministic", "deterministic_fallback"]
     planner_model: str | None = None
     planner_reason: str = ""
@@ -340,6 +348,7 @@ class AgentTaskRun(BaseModel):
     after_dimension_score: float | None = Field(default=None, ge=0, le=1)
     summary: str = ""
     artifacts: dict[str, str] = Field(default_factory=dict)
+    clarification: AgentTaskClarification | None = None
     snapshot_file: str | None = None
     created_at: datetime
     completed_at: datetime
@@ -378,7 +387,7 @@ class AgentEvalCase(BaseModel):
     description: str
     goal: str
     fixture: Literal["baseline_plate", "complete_dimension", "repairable_dimension", "locked_reference"]
-    expected_status: Literal["completed", "partial", "failed"]
+    expected_status: Literal["completed", "partial", "failed", "needs_clarification"]
     expected_tools: list[AgentToolName] = Field(default_factory=list)
     forbidden_tools: list[AgentToolName] = Field(default_factory=list)
     expected_arguments: dict[str, dict[str, Any]] = Field(default_factory=dict)
@@ -593,7 +602,7 @@ class AgentToolCatalogResponse(BaseModel):
 class AgentEvalRequest(BaseModel):
     mode: Literal["deterministic", "deepseek"] = "deterministic"
     case_ids: list[str] = Field(default_factory=list)
-    max_cases: int = Field(default=12, ge=1, le=30)
+    max_cases: int = Field(default=13, ge=1, le=30)
 
 
 class AgentEvalDatasetResponse(BaseModel):

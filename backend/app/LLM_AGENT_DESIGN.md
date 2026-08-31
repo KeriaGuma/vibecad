@@ -99,6 +99,22 @@ chat command
 Successful mechanical drives retain a snapshot-backed transaction. Sending
 `撤销` or `undo` restores the previous IR and semantic snapshot.
 
+## Runtime safety gates beyond the planner
+
+The task runtime is deliberately stricter than the convenience parser used by
+the small demo path. When a generic edit could match more than one editable
+entity (for example, `把孔直径改成 10` on a plate with two holes), it does not
+pick the first IR entity. It performs a read-only inspection and returns one
+focused clarification question with candidate IDs and short geometry hints.
+No LLM call or mutation occurs until the user identifies a target such as
+`hole_1`, `左边孔`, or `右边孔`.
+
+An `export_dxf` task is also not considered complete solely because URLs can
+be constructed. The export tool generates DXF and SVG in an isolated temporary
+directory, re-opens the DXF with `ezdxf`, confirms the SVG root element, and
+records byte and entity-count evidence in the task trace. The normal project
+commit then regenerates the same artifacts at their persistent paths.
+
 ## Later slices
 
 - Slice 2: enrich `_ir_summary` with OCR text / parameter-table cells so the
