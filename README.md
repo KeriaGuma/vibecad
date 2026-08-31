@@ -77,7 +77,9 @@ LLM omission remains inspectable instead of silently becoming product behavior.
   export where the semantic object is complete.
 - Agent runtime: typed tools, task timeline, automatic validation injection,
   snapshot rollback, bounded replan, ambiguity-safe target selection, and
-  deterministic offline fallback.
+  deterministic offline fallback. LLM contexts combine compact geometry and
+  dimension bindings with confidence-filtered OCR, parameter-table, and
+  title-block semantics, so real drawing labels can guide feature selection.
 - Evaluation: a versioned 13-case Agent Eval set covering planning, editing,
   semantic drive/repair, safety, recovery, and export.
 
@@ -187,6 +189,9 @@ provide a DeepSeek key and explicitly disables Paddle model downloading.
   incorrect or incomplete editable geometry.
 - OCR/table outputs are candidate semantics that require inspection. The title
   block uses its own CV grid reconstruction path before optional table models.
+  Agent prompts treat those observations as untrusted reference text: they may
+  select an existing feature or dimension, but never issue instructions or
+  create geometry on their own.
 - The current dimension driver supports a deliberately narrow, validated
   subset of complete semantic dimensions. It does not infer manufacturing
   intent from every visible number.

@@ -415,7 +415,7 @@ def api_chat(project_id: str, request: ChatRequest):
         # Try the LLM planner; fall back to the deterministic parser when no
         # provider/key is configured or the call fails (offline-safe).
         try:
-            operations, reply = plan_operations_llm(request.message, project.ir)
+            operations, reply = plan_operations_llm(request.message, project)
         except LlmUnavailable:
             operations, reply = plan_operations(request.message, project.ir)
     if would_replace_vector_import(project, operations):

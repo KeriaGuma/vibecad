@@ -8,7 +8,7 @@ while reusing the entire existing pipeline.
 
 ```
 /chat (main.py:api_chat)
-  -> plan_operations(message, ir)        # the only thing that changes
+  -> plan_operations(message, project)   # the only thing that changes
        -> [LLM] llm_agent.plan_operations_llm   # new brain
        -> [fallback] agent.plan_operations      # existing regex, on no-key/error
   -> cad_ops.apply_operations(ir, ops)   # unchanged
@@ -19,6 +19,29 @@ The IR, `Operation` schema, `apply_operations`, export, and diff are all reused.
 For semantic dimensions, the LLM is deliberately not allowed to emit entity
 coordinates. It only selects a `dimension_id`, absolute target value, and
 anchor. `mechanical_drive.py` applies and validates the geometry transaction.
+
+## Drawing context: geometry plus compressed semantics
+
+The generic, semantic-dimension, and task-level planners now receive the
+versioned `drawing_context_v1` package, not just an entity-ID list. It includes
+a bounded subset of edit-relevant geometry, dimension bindings, semantic
+mechanical dimensions, OCR regions, parameter-table cells, and title-block
+cells. This lets a request such as “把总长改成 250” resolve against the drawing's
+label and parameter-table value, then select the exact catalog dimension that
+locally owns the geometry.
+
+The context is deliberately lossy and deterministic: geometry and each text
+bucket have fixed item caps; text is whitespace-normalized and capped at 120
+characters; OCR/table/title observations below 0.50 confidence are excluded;
+and each bucket reports how many observations were omitted. Dimension-linked
+entity IDs are prioritized before generic entities. The bounds keep prompts
+stable on dense scans while preserving enough local evidence to choose a
+feature or dimension by meaning.
+
+OCR, title-block, and table text are explicitly marked as *untrusted drawing
+observations* in the system prompts. They can guide a choice among exact IDs
+already present in the catalog, but can never be treated as executable
+instructions, create an ID, or authorize arbitrary geometry.
 
 ## Providers: pluggable, OpenAI-compatible first
 
@@ -117,8 +140,9 @@ commit then regenerates the same artifacts at their persistent paths.
 
 ## Later slices
 
-- Slice 2: enrich `_ir_summary` with OCR text / parameter-table cells so the
-  model reasons about drawing semantics (e.g. the gear parameter table), and
-  support richer `add_entity` payloads.
-- Slice 3: multi-turn conversation history + prompt-cache tuning; promote
+- Slice 2 (complete): project-aware context packs OCR, title-block and
+  parameter-table observations alongside dimension bindings and compact
+  geometry for generic, semantic-dimension, and task-level planning.
+- Slice 3: support richer `add_entity` payloads, then add multi-turn
+  conversation history + prompt-cache tuning; promote
   pipeline actions (re-extract, export) to tools for a real agentic loop.
